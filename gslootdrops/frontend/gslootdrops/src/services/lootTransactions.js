@@ -159,7 +159,7 @@ const getTransferTransaction = (tokenData, transaction, instruction) => {
         try {
           if (instruction.parsed)
           {
-            if (instruction.programId === TOKEN_PROGRAM_ID.toString())
+            if (instruction.programId.toString() === TOKEN_PROGRAM_ID.toString())
             {
               // handle token transfers
               const transactionEntry = getTransferTransaction(lootItem, transaction, instruction);
@@ -168,7 +168,7 @@ const getTransferTransaction = (tokenData, transaction, instruction) => {
                 results.push(transactionEntry);
               }
             }
-            else if (instruction.programId === ASSOCIATED_TOKEN_PROGRAM_ID.toString())
+            else if (instruction.programId.toString() === ASSOCIATED_TOKEN_PROGRAM_ID.toString())
             {
                 //ignore creates
             }
@@ -180,7 +180,7 @@ const getTransferTransaction = (tokenData, transaction, instruction) => {
           }
           else //no parsed info
           {
-            if (instruction.programId === Constants.BLACKSMITH_PROGRAM.toString())
+            if (instruction.programId.toString() === Constants.BLACKSMITH_PROGRAM.toString())
             {
               // handle blacksmith interactions (the inner instructions will contain the transfers)
               const innerInstructions = parsedTransaction.meta.innerInstructions[i];
@@ -194,7 +194,7 @@ const getTransferTransaction = (tokenData, transaction, instruction) => {
                   }
               }
             }
-            else if (instruction.programId === Constants.SOULOFOX_PROGRAM.toString())
+            else if (instruction.programId.toString() === Constants.SOULOFOX_PROGRAM.toString())
             {
               // handle soulofox interactions (the inner instructions will contain the transfers)
               const innerInstructions = parsedTransaction.meta.innerInstructions[i];

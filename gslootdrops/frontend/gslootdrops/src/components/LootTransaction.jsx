@@ -72,8 +72,8 @@ const LootTransaction = ({ itemData }) => {
         <TableRow>
             <TableCell>
                 <Typography sx={{ p:1,  fontFamily:"Roboto"}} variant="body1">
-                    <div>{itemData.date.toLocaleDateString()}</div>
-                    <div>{itemData.date.toLocaleTimeString()}</div>
+                    <span>{itemData.date.toLocaleDateString()}</span>
+                    <span>{itemData.date.toLocaleTimeString()}</span>
                 </Typography>
             </TableCell>
             <TableCell sx={{ textAlign:"center"}}>
