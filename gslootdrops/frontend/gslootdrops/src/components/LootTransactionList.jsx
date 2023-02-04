@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
+import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody, Typography } from "@mui/material";
 import { useGuildSagaLootData } from "../hooks/useGuildSagaLootData";
 import LootTransaction from "./LootTransaction";
 
@@ -22,15 +22,39 @@ const LootTransactionList = () => {
 
     return (
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 800 }} aria-label="loot-transaction-table">
+        <Table sx={{ minWidth: 800, tableLayout:"fixed" }} aria-label="loot-transaction-table">
             <TableHead>
                 <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Transaction Type</TableCell>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Amount</TableCell>
-                    <TableCell>From</TableCell>
-                    <TableCell>To</TableCell>
+                    <TableCell sx={{ width:"140px"}}>
+                        <Typography sx={{ p:1, fontFamily:"Roboto"}}>
+                            Date
+                        </Typography>
+                    </TableCell>
+                    <TableCell sx={{ width:"160px", textAlign:"center"}}>
+                        <Typography sx={{ p:1, fontFamily:"Roboto"}}>
+                            Transaction
+                        </Typography>
+                    </TableCell>
+                    <TableCell sx={{ width:"80px", textAlign:"center"}}>
+                        <Typography sx={{ p:1, fontFamily:"Roboto"}}>
+                            Loot
+                        </Typography>
+                    </TableCell>
+                    <TableCell sx={{ width:"80px", textAlign:"center"}}>
+                        <Typography sx={{ p:1, fontFamily:"Roboto"}}>
+                            Amount
+                        </Typography>
+                    </TableCell>
+                    <TableCell sx={{ width:"160px"}}>
+                        <Typography sx={{ p:1, fontFamily:"Roboto"}}>
+                            From
+                        </Typography>    
+                    </TableCell>
+                    <TableCell sx={{ width:"160px"}}>
+                        <Typography sx={{ p:1, fontFamily:"Roboto"}}>
+                            To
+                        </Typography>
+                    </TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>

@@ -47,6 +47,16 @@ const LootItem = ({ itemData }) => {
     textColor = '#ff8000';
   }
 
+  let displayName = "???";
+  if (metadata.json)
+  {
+    displayName = metadata.json.name;
+    if (itemData.amount)
+    {
+      displayName = displayName + " x " + itemData.amount;
+    }
+  }
+
   if (metadata.json) {
     return (
       <Grid item>
@@ -87,9 +97,9 @@ const LootItem = ({ itemData }) => {
                 fontFamily: "RhymeExtended",
               }}>
               <Box sx={{backgroundColor:"#111155"}}>
-                <Typography variant="h5" color={textColor}  sx={{ p:1 }}>{metadata.json.name} x {itemData.amount}</Typography>
+                <Typography variant="h5" color={textColor}  sx={{ p:1 }}>{displayName}</Typography>
               </Box>
-              <Typography sx={{ p:1 }}>{metadata.json.description.replaceAll('\\n', '\n')}</Typography>
+              <Typography sx={{ p:1, fontFamily:"Roboto"}}>{metadata.json.description.replaceAll('\\n', '\n')}</Typography>
               <Typography sx={{ p:1 }}>{itemType}</Typography>
             </Box>
           </Popover>
